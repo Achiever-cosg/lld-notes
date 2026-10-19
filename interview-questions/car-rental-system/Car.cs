@@ -8,8 +8,9 @@ namespace CarRentalSystem
         public string LicensePlate { get; }
         public double RentalPricePerDay { get; }
         public bool Available { get; private set; }
+        public Store CurrentStore { get; private set; }
 
-        public Car(string make, string model, int year, string licensePlate, double rentalPricePerDay)
+        public Car(string make, string model, int year, string licensePlate, double rentalPricePerDay, Store store)
         {
             Make = make;
             Model = model;
@@ -17,11 +18,17 @@ namespace CarRentalSystem
             LicensePlate = licensePlate;
             RentalPricePerDay = rentalPricePerDay;
             Available = true;
+            CurrentStore = store;
         }
 
         public void SetAvailable(bool available)
         {
             Available = available;
+        }
+
+        public void SetCurrentStore(Store store)
+        {
+            CurrentStore = store;
         }
     }
 }
